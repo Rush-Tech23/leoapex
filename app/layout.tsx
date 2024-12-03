@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter } from 'next/font/google';
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,11 +23,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${inter.className}  antialiased`}>
+        <div
+          className="fixed inset-0 overflow-auto"
+          style={{
+            background: `
+              linear-gradient(
+                to bottom,
+                rgba(128, 0, 128, 0.3) 0%,
+                rgba(128, 0, 128, 0.2) 40%,
+                rgba(128, 0, 128, 0.1) 70%,
+                rgba(128, 0, 128, 0.05) 85%,
+                transparent 100%
+              ),
+              linear-gradient(to bottom, #050505, #050505)
+            `,
+          }}
+        />
+        <div className="relative min-h-screen">{children}</div>
       </body>
     </html>
   );
 }
+
