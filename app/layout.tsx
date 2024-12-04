@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Inter } from 'next/font/google';
 import "./globals.css";
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+ 
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}  antialiased`}>
+      <body className={`${inter.className} antialiased`}>
         <div
           className="fixed inset-0 overflow-auto"
           style={{
